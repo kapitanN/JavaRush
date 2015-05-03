@@ -20,11 +20,14 @@ package com.javarush.test.level14.lesson08.home06;
 8.2 вывести на экран movie.getClass().getSimpleName()
 */
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 public class Solution
 {
     public static void main(String[] args) throws Exception
     {
-        //ввести с консоли несколько ключей (строк), пункт 7
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
 
     }
