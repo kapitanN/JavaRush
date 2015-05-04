@@ -61,16 +61,19 @@ public class Solution
                 if (object instanceof Double)
                 {
                     Double a = (Double) object;
-                    System.out.println("Is float value defined? " + a.isNaN());
+                    System.out.println("Is double value defined? " + a.isNaN());
                 } else if (object instanceof Float)
                 {
                     Float a = (Float) object;
-                    System.out.println("Is double value infinite? " + a.isInfinite());
+                    System.out.println("Is float value infinite? " + a.isInfinite());
                 }
             }
         }
         public NotIncapsulatedClass(){
             List<Number> list = new LinkedList<Number>();
+            list = initList(list);
+            printListValues(list);
+            processCastedObjects(list);
 
         }
     }
