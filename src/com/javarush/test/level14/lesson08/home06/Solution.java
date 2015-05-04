@@ -15,9 +15,7 @@ package com.javarush.test.level14.lesson08.home06;
 8. Создать переменную movie класса Movie и для каждой введенной строки(ключа):
 8.1. Получить объект используя MovieFactory.getMovie и присвоить его переменной movie.
 8.2. Вывести на экран movie.getClass().getSimpleName().
-8 Создать переменную movie класса Movie и для каждой введенной строки(ключа):
-8.1 получить объект используя MovieFactory.getMovie и присвоить его переменной movie
-8.2 вывести на экран movie.getClass().getSimpleName()
+
 */
 
 import java.io.BufferedReader;
@@ -28,8 +26,18 @@ public class Solution
     public static void main(String[] args) throws Exception
     {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String key = null;
+        while (true)
+        {
+            key = reader.readLine();
+            if (key.equals("cartoon") || key.equals("triller") || key.equals("soapOpera"))
+            {
 
-
+                Movie movie = MovieFactory.getMovie(key);
+                System.out.println(movie.getClass().getSimpleName());
+            }
+            else break;
+        }
     }
 
     static class MovieFactory
@@ -47,15 +55,14 @@ public class Solution
 
             else if ("cartoon".equals(key))
             {
-                movie = new SoapOpera();
+                movie = new Cartoon();
             }
 
             else if ("triller".equals(key))
             {
-                movie = new SoapOpera();
+                movie = new Triller();
             }
 
-            //Напишите тут ваш код, пункты 5,6
             return movie;
         }
     }

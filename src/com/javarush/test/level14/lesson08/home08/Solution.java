@@ -13,14 +13,14 @@ public class Solution
 {
     public static void main(String[] args)
     {
-/*
+
         Swimable animal = new Orca();
         animal.swim();
         animal = new Whale();
         animal.swim();
         animal = new Otter();
         animal.swim();
-*/
+
     }
 
     public static void test(Swimable animal)
@@ -38,7 +38,7 @@ public class Solution
         void swim();
     }
 
-    static abstract class OceanAnimal
+    static abstract class OceanAnimal implements Swimable
     {
         public void swim()
         {
@@ -54,17 +54,25 @@ public class Solution
         abstract Swimable getCurrentAnimal();
     }
 
-    static class Orca
+    static class Orca extends OceanAnimal
     {
+        public Swimable getCurrentAnimal(){
+            return this;
+        }
     }
 
-    static class Whale
+    static class Whale extends OceanAnimal
     {
+        public Swimable getCurrentAnimal(){
+            return this;
+        }
 
     }
 
-    static class Otter
+    static class Otter implements Walkable,Swimable
     {
+        public void walk(){}
+        public void swim(){}
 
     }
 }
