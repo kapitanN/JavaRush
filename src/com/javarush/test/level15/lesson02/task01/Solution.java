@@ -18,7 +18,7 @@ public class Solution {
         Object getAllowedAction();
     }
 
-    public static class Clothes implements  Sellable, Discountable
+    public static class Clothes implements   Discountable, Sellable
     {
 
         public Object getAllowedAction(String name){
