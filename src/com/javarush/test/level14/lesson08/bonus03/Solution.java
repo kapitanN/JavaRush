@@ -1,4 +1,4 @@
-dfpackage com.javarush.test.level14.lesson08.bonus03;
+package com.javarush.test.level14.lesson08.bonus03;
 
 /* Singleton
 Класс является синглтоном (реализует паттерн(шаблон) Singleton), если позволяет создать всего один объект своего типа.
