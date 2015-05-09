@@ -1,7 +1,10 @@
 package com.javarush.test.level15.lesson12.home01;
 
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Objects;
 
 /* Разные методы для разных типов
 1. Считать с консоли данные, пока не введено слово "exit".
@@ -14,7 +17,32 @@ import java.io.IOException;
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        //напиште тут ваш код
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String read = reader.readLine();
+        while (!read.equals("exit")){
+
+            try{
+                if (read.contains(".")){
+                    print(Double.parseDouble(read));
+                }
+                else {
+                    int num = Integer.parseInt(read);
+                    if(num>0 && num<128){
+                        print((short)num);
+                    }
+                    else if (num >= 128){
+                        print((Integer) num);
+                    }
+                    else print(read);
+                }
+            }
+            catch(NumberFormatException e){
+                print(read);
+            }
+
+            read = reader.readLine();
+        }
     }
 
     public static void print(Double value) {

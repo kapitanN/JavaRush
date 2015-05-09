@@ -17,26 +17,31 @@ public class Solution {
 
     public static class Duck implements Flyable, Movable {
         @Override
-        public void doAction() {
+        public void doFlying() {
+
             System.out.println("flying");
+        }
+
+        public void doMoving(){
+            System.out.println("moving");
         }
     }
 
     public static class Util {
         static void fly(Flyable animal) {
-            animal.doAction();
+            animal.doFlying();
         }
 
         static void move(Movable animal) {
-            animal.doAction();
+            animal.doMoving();
         }
     }
 
     public static interface Flyable {
-        void doAction();
+        void doFlying();
     }
 
     public static interface Movable {
-        void doAction();
+        void doMoving();
     }
 }
