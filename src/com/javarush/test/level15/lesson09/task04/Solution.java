@@ -20,6 +20,10 @@ public class Solution {
     public static int A = 0;
 
     static {
+        if (A == 0)
+        {
+            throw new RuntimeException();
+        }
         //throw an exception here - выбросьте эксепшн тут
     }
 
