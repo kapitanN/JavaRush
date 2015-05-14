@@ -8,5 +8,21 @@ package com.javarush.test.level15.lesson12.home05;
 */
 
 public class Solution {
+    public Solution(Object const1){}
+    public Solution(Integer const2){}
+    public Solution(String const3){}
+
+    protected Solution(Number const4){}
+    protected Solution(Character const2){}
+    protected Solution(Double const3){}
+
+    private Solution(boolean const1){}
+    private Solution(Short const2){}
+    private Solution(Float const3){}
+
+    Solution(Byte const1){}
+    Solution(Exception const2){}
+    Solution(float const3){}
+
 }
 
