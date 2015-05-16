@@ -21,7 +21,7 @@ public class Solution {
         }
 
         protected void initialize() {
-            System.out.println(f1);
+            System.out.println("A"+f1);
         }
     }
 
@@ -35,7 +35,7 @@ public class Solution {
         }
 
         protected void initialize() {
-            System.out.println(f1);
+            System.out.println("B"+f1);
         }
     }
 }
