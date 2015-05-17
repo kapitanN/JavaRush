@@ -2,6 +2,7 @@ package com.javarush.test.level14.lesson04.task02;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.nio.Buffer;
 
 /* Коты
 1. Считывать строки(параметры) с консоли, пока пользователь не введет пустую строку(Enter).
@@ -15,7 +16,17 @@ public class Solution
 {
     public static void main(String[] args) throws Exception
     {
-        //Add your code here
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String key = null;
+        while(true){
+            key = reader.readLine();
+            if (key.equals("")){
+                break;
+            }
+
+        }
+        Cat cat = CatFactory.getCatByKey(key);
+        System.out.println(cat.toString());
     }
 
     static class CatFactory

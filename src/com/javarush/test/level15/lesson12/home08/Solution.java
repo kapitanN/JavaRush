@@ -20,14 +20,13 @@ public class Solution {
             initialize();
         }
 
-        protected void initialize() {
-            System.out.println("A"+f1);
+        private void initialize() {
+            System.out.println(f1);
         }
     }
 
     public static class B extends A {
         protected int f1 = 3;
-
         public B(int f1) {
             super(f1);
             this.f1 += f1;
@@ -35,7 +34,7 @@ public class Solution {
         }
 
         protected void initialize() {
-            System.out.println("B"+f1);
+            System.out.println(f1);
         }
     }
 }
