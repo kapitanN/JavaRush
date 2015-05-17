@@ -22,9 +22,31 @@ obj name
 double 3.14
 */
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 public class Solution {
-    public static void main(String[] args) {
-        //add your code here
+    public static void main(String[] args) throws IOException
+    {
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String url = reader.readLine();
+        String newUrl = url.substring(url.indexOf("?") + 1);
+        String[] lines = newUrl.split("&");
+        String atr;
+        ArrayList<String> element = new ArrayList<String>();
+        for (String line : lines){
+
+            int pos = line.indexOf("=")+1;
+            atr = line.substring(0,pos);
+            element.add(atr);
+        }
+        for (int i = 0; i < element.size()-1; i++)
+        {
+            System.out.println(element.get(i));
+        }
     }
 
     public static void alert(double value) {

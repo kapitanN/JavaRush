@@ -23,10 +23,13 @@ public class Solution
             if (key.equals("")){
                 break;
             }
+            else{
+                Cat cat = CatFactory.getCatByKey(key);
+                System.out.println(cat.toString());
+            }
 
         }
-        Cat cat = CatFactory.getCatByKey(key);
-        System.out.println(cat.toString());
+
     }
 
     static class CatFactory

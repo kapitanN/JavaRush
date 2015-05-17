@@ -12,10 +12,7 @@ import java.io.File;
 
 public class Solution {
     public static void main(String[] args) {
-        String javaHome = System.getProperty("java.home");
-        File f = new File(javaHome);
-        f = new File(f, "bin");
-        f = new File(f, "java.exe");
-        System.out.println(f);
+        System.out.println("It's Windows path: "+"\"C:\\Program Files\\Java\\jdk1.7.0\\bin"+"\"");
+        System.out.println("It's Java string: "+"\\"+"\""  +"C:\\"+"\\"+"Program Files\\"+"\\"+"Java\\"+"\\"+"jdk1.7.0\\"+"\\"+"bin"+"\\"+"\"");
     }
 }
