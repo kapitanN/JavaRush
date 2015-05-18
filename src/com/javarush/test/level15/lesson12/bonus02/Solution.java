@@ -1,4 +1,4 @@
-package com.javarush.test.level15.lesson12.bonus02;
+    package com.javarush.test.level15.lesson12.bonus02;
 
 /* Template pattern
 1. В отдельном файле создать класс DrinkMaker с тремя абстрактными методами:
