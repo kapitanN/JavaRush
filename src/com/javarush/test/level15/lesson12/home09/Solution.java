@@ -59,11 +59,10 @@ public class Solution {
         for (int i = 0; i < element2.size(); i++)
         {
 
-                if (element2.get(i).contains("."))
-                {
+                try{
 
                     alert(Double.parseDouble(element2.get(i)));
-                } else
+                } catch(Exception e)
                 {
                     alert(element2.get(i));
                 }
