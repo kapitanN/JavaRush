@@ -20,6 +20,7 @@ http://javarush.ru/alpha/index.html?obj=3.14&name=Amigo
 Вывод:
 obj name
 double 3.14
+javarush.ru/alpha/index.html?lvl=15&??view&&&name=Aobjmigo&obj=3.14&name=&obj=djsdcd&&?oobj=3.0
 */
 
 import java.io.BufferedReader;
@@ -34,20 +35,42 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String url = reader.readLine();
         String newUrl = url.substring(url.indexOf("?") + 1);
-        String[] lines = newUrl.split("&");
-        String atr;
+        String[] lines = newUrl.split("(\\&)|(\\?)");
+        String [] atr;
         ArrayList<String> element = new ArrayList<String>();
+        ArrayList<String> element2 = new ArrayList<String>();
         for (String line : lines){
+            if (!line.equals("")){
+                atr = line.split("=");
+            element.add(atr[0]);
+                if (atr[0].equals("obj")&&atr.length>1)
+                {
+                    element2.add(atr[1]);
+                }
+            }
 
-            int pos = line.indexOf("=")+1;
-            atr = line.substring(0,pos);
-            element.add(atr);
         }
-        for (int i = 0; i < element.size()-1; i++)
+        for (int i = 0; i < element.size(); i++)
         {
-            System.out.println(element.get(i));
+            System.out.print(element.get(i) + " ");
+
         }
+        System.out.println();
+        for (int i = 0; i < element2.size(); i++)
+        {
+
+                if (element2.get(i).contains("."))
+                {
+
+                    alert(Double.parseDouble(element2.get(i)));
+                } else
+                {
+                    alert(element2.get(i));
+                }
+        }
+
     }
+
 
     public static void alert(double value) {
         System.out.println("double " + value);
