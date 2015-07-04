@@ -16,7 +16,7 @@ public class Solution
     {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        HashMap<int, String> map = new HashMap<int, String>();
+        HashMap<Integer, String> map = new HashMap<Integer, String>();
 
         for (int i = 0; i < 10; i++)
         {
@@ -25,7 +25,7 @@ public class Solution
             map.put(index, name);
         }
 
-        for (Map.Entry<int, String> pair : map.entrySet())
+        for (Map.Entry<Integer, String> pair : map.entrySet())
         {
             int id = pair.getKey();
             String name = pair.getValue();
