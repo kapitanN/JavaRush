@@ -1,6 +1,8 @@
 package com.javarush.test.level10.lesson11.bonus02;
 
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /* Нужно добавить в программу новую функциональность
 Задача: Программа вводит с клавиатуры пару (число и строку) и выводит их на экран.
@@ -27,10 +29,29 @@ public class Solution
     public static void main(String[] args) throws IOException
     {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        HashMap<String, Integer> map = new HashMap<String, Integer>();
 
-        int id = Integer.parseInt(reader.readLine());
-        String name = reader.readLine();
+        int id;
+        String name;
 
-        System.out.println("Id=" + id + " Name=" + name);
+        while (true)
+        {
+            String s = reader.readLine();
+            if(!s.equals(""))
+                id = Integer.parseInt(s);
+
+            else break;
+
+            name = reader.readLine();
+            if (name.equals("")) break;
+
+            map.put(name, id) ;
+        }
+
+        for (Map.Entry<String, Integer> pair : map.entrySet()){
+            name = pair.getKey();
+            id = pair.getValue();
+            System.out.println( id + " " + name);
+        }
     }
 }

@@ -35,6 +35,19 @@ public class Solution
 
     public static void sort(int[] array)
     {
-        //Напишите тут ваш код
+        for (int i = 0; i < array.length-1; i++)
+        {
+            for (int j = 1; j < array.length; j++)
+            {
+                if (array[j]<array[j-1]){
+                    int temp = array[j-1];
+                    array[j-1] = array[j];
+                    array[j] = temp;
+            }
+
+            }
+
+        }
+
     }
 }
