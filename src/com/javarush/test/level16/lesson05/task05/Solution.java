@@ -12,6 +12,7 @@ package com.javarush.test.level16.lesson05.task05;
 public class Solution {
     public static void main(String[] args) throws InterruptedException {
         Cat cat1 = new Cat("Мурка");
+        cat1.join();
         Cat cat2 = new Cat("Пушинка");
     }
 
@@ -37,7 +38,9 @@ public class Solution {
 
         private void initAllKitten() throws InterruptedException {
             kitten1.start();
+            kitten1.join();
             kitten2.start();
+            kitten2.join();
         }
     }
 
@@ -53,6 +56,9 @@ public class Solution {
     }
 
     private static void investigateWorld() {
-        //do nothing here
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+        }//do nothing here
     }
 }
