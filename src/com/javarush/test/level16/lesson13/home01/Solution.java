@@ -23,9 +23,13 @@ public class Solution {
             }
         }
         public void printMsg() {
-            Thread t = null;//присвой переменной t текущую нить
+            Thread t = Thread.currentThread();//присвой переменной t текущую нить
             String name = t.getName();
             System.out.println("name=" + name);
+            try{
+                Thread.sleep(1);
+            }
+            catch (InterruptedException e){}
             //add sleep here - добавь sleep тут
         }
     }
