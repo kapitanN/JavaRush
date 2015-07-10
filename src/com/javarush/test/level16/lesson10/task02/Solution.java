@@ -16,6 +16,11 @@ public class Solution {
 
     public static void main(String[] args) throws InterruptedException {
         RacingClock clock = new RacingClock();
+        Thread.sleep(3500);
+        if (clock.isAlive()){
+            clock.interrupt();
+        }
+
         //add your code here - добавь код тут
     }
 
@@ -25,6 +30,20 @@ public class Solution {
         }
 
         public void run() {
+            try
+            {
+                while(countSeconds>0)
+                {
+                    System.out.print(countSeconds + " ");
+                    Thread.sleep(1000);
+                    countSeconds--;
+
+                }
+                System.out.println("Марш!");
+            }
+            catch(InterruptedException e){
+                System.out.println("Прервано!");
+            }
             //add your code here - добавь код тут
         }
     }
