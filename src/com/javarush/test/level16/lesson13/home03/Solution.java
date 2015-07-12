@@ -14,6 +14,7 @@ package com.javarush.test.level16.lesson13.home03;
 5. В итоге должно быть выведено в консоль 15 строк.
 */
 
+
 public class Solution {
     static int count = 15;
     static volatile int countCreatedThreads;
@@ -22,10 +23,10 @@ public class Solution {
         System.out.println(new GenerateThread());
     }
 
-    public static class GenerateThread implements Runnable{
+    public static class GenerateThread extends Thread{
 
-        GenerateThread(){
-            super(int countCreatedThreads);
+        public GenerateThread(){
+            super(String.valueOf(++countCreatedThreads));
 
         }
         public void run(){
