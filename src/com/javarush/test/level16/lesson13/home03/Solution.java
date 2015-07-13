@@ -25,11 +25,30 @@ public class Solution {
 
     public static class GenerateThread extends Thread{
 
+        @Override
+        public String toString()
+        {
+            return this.getName() + " created";
+        }
+
         public GenerateThread(){
             super(String.valueOf(++countCreatedThreads));
+            try
+            {
+                Thread.sleep(1000);
+            }
+            catch (InterruptedException e)
+            {
+                e.printStackTrace();
+            }
+            start();
 
         }
         public void run(){
+            while (countCreatedThreads<count){
+
+                System.out.println(new GenerateThread());
+            }
 
         }
     }
