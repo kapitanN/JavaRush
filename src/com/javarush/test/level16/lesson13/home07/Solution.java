@@ -65,6 +65,26 @@ public class Solution {
 
         @Override
         public void run() {
+                         try
+                         {
+                             while (!OnlineGame.isWinnerFound)
+                             {
+                                 int i;
+                                 int endCount = OnlineGame.steps.size();
+                                 for (i = 0; i < OnlineGame.steps.size(); i++)
+                                 {
+                                     System.out.println(getName() + ":" + OnlineGame.steps.get(i));
+                                     Thread.sleep(1000/rating);
+                                 }
+                                 if (i == endCount){
+                                     System.out.println(getName() + ":победитель!");
+                                     OnlineGame.isWinnerFound = true;
+                                 }
+                             }
+                         }
+                         catch (InterruptedException e){
+                             System.out.println(getName() + ":проиграл");
+                         }
             //Add your code here - добавь код тут
         }
     }
