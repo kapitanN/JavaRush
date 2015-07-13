@@ -33,21 +33,15 @@ public class Solution {
 
         public GenerateThread(){
             super(String.valueOf(++countCreatedThreads));
-            try
-            {
-                Thread.sleep(1000);
-            }
-            catch (InterruptedException e)
-            {
-                e.printStackTrace();
-            }
             start();
 
         }
+        @Override
         public void run(){
             while (countCreatedThreads<count){
 
-                System.out.println(new GenerateThread());
+                GenerateThread thread = new GenerateThread();
+                System.out.println(thread);
             }
 
         }
