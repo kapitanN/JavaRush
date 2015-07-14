@@ -50,6 +50,20 @@ public class Solution {
         }
 
         public void run() {
+            try
+            {
+                while (isInterrupted()){
+                    String read = reader.readLine();
+                    result.add(read);
+                    countReadStrings++;
+                    System.out.println(countReadStrings);
+                }
+
+
+            }
+            catch (IOException e){
+
+            }
             //add your code here - добавьте код тут
         }
 
