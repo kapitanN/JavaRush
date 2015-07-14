@@ -52,7 +52,7 @@ public class Solution {
         public void run() {
             try
             {
-                while (isInterrupted()){
+                while (!isInterrupted()){
                     String read = reader.readLine();
                     result.add(read);
                     countReadStrings++;
