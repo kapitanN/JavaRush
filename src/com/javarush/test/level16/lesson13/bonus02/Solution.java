@@ -1,5 +1,9 @@
 package com.javarush.test.level16.lesson13.bonus02;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.BatchUpdateException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +18,107 @@ import java.util.List;
 3. Нити не должны стартовать автоматически.
 */
 
-public class Solution {
+public class Solution
+{
     public static List<Thread> threads = new ArrayList<Thread>(5);
+
+    static {
+        threads.add(new Thread1());
+        threads.add(new Thread2());
+        threads.add(new Thread3());
+        threads.add(new Thread4());
+        threads.add(new Thread5());
+    }
+    public static class Thread1 extends Thread
+    {
+        public void run()
+        {
+            while (true)
+            {
+                System.out.println("Выполняется");
+            }
+        }
+    }
+
+    public static class Thread2 extends Thread
+    {
+        public void run()
+        {
+            try
+            {
+                while (!isInterrupted())
+                {
+                    throw new InterruptedException();
+                }
+            }
+            catch (InterruptedException e)
+            {
+                System.out.println("InterruptedException");
+            }
+        }
+    }
+
+    public static class Thread3 extends Thread
+    {
+        public void run()
+        {
+            try
+            {
+                System.out.println("Ура");
+                Thread.sleep(500);
+            }
+            catch (InterruptedException e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public static class Thread4 extends Thread implements Message{
+
+        public void showWarning(){
+            this.interrupt();
+            try
+            {
+                this.join();
+            }
+            catch (InterruptedException e)
+            {
+                e.printStackTrace();
+            }
+
+        }
+        public void run(){
+            Thread thread = new Thread();
+            while (!thread.isInterrupted()){}
+        }
+    }
+
+    public static class Thread5 extends Thread {
+
+        public void run(){
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            int sum = 0 ;
+            try
+            {
+                while (!isInterrupted()){
+                    String read = reader.readLine();
+                    if (read.equals("N")){
+                        System.out.println(sum);
+                        Thread.interrupted();
+                    }
+                    else{
+                        int num = Integer.parseInt(read);
+                        sum += num;
+                    }
+                }
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+
+        }
+    }
 }
