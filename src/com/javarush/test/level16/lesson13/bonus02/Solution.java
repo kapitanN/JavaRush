@@ -29,6 +29,8 @@ public class Solution
         threads.add(new Thread4());
         threads.add(new Thread5());
     }
+
+    public static void main(String[] args){}
     public static class Thread1 extends Thread
     {
         public void run()
@@ -104,8 +106,7 @@ public class Solution
             {
                 while (!isInterrupted()){
                     String read = reader.readLine();
-                    if (read.equals("N")){
-                        System.out.println(sum);
+                    if (read.equals("N ")){
                         Thread.interrupted();
                     }
                     else{
@@ -113,10 +114,15 @@ public class Solution
                         sum += num;
                     }
                 }
+                throw new InterruptedException();
             }
             catch (IOException e)
             {
                 e.printStackTrace();
+            }
+            catch (InterruptedException e)
+            {
+                System.out.println(sum);
             }
 
         }
