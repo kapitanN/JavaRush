@@ -18,112 +18,162 @@ import java.util.List;
 3. Нити не должны стартовать автоматически.
 */
 
-public class Solution
-{
+public class Solution {
     public static List<Thread> threads = new ArrayList<Thread>(5);
 
     static {
-        threads.add(new Thread1());
-        threads.add(new Thread2());
-        threads.add(new Thread3());
-        threads.add(new Thread4());
-        threads.add(new Thread5());
+
+        threads.add(new ThreadOne());
+        threads.add(new ThreadTwo());
+        threads.add(new ThreadThree());
+        threads.add(new ThreadFour());
+        threads.add(new ThreadFive());
     }
 
-    public static void main(String[] args){}
-    public static class Thread1 extends Thread
+    private static void sleep()
     {
+        try
+        {
+            Thread.sleep(100);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void main(String[] args){
+
+        Thread thread2 = threads.get(1);
+        thread2.start();
+        sleep();
+        thread2.interrupt();
+
+        Thread thread4 = threads.get(3);
+        Message message = (Message) thread4;
+        thread4.start();
+        sleep();
+        message.showWarning();
+        System.out.println(thread4.isAlive());
+
+    }
+
+    public static class ThreadOne extends Thread{
+
+        @Override
         public void run()
         {
             while (true)
             {
-                System.out.println("Выполняется");
+
             }
         }
     }
 
-    public static class Thread2 extends Thread
-    {
+    public static class ThreadTwo extends Thread{
+
+        @Override
         public void run()
         {
-            try
-            {
+            try{
                 while (!isInterrupted())
                 {
-                    throw new InterruptedException();
+
                 }
-            }
-            catch (InterruptedException e)
+                throw new InterruptedException();
+            }catch (InterruptedException e)
             {
                 System.out.println("InterruptedException");
             }
+
         }
     }
 
-    public static class Thread3 extends Thread
-    {
+    public static class ThreadThree extends Thread{
+
+        @Override
         public void run()
         {
-            try
+            try{
+                while (true)
+                {
+                    System.out.println("Ура");
+                    Thread.sleep(500);
+                }
+
+            }catch (InterruptedException e)
             {
-                System.out.println("Ура");
-                Thread.sleep(500);
-            }
-            catch (InterruptedException e)
-            {
-                e.printStackTrace();
+
             }
         }
-
     }
 
-    public static class Thread4 extends Thread implements Message{
+    public static class ThreadFour extends Thread implements Message{
 
-        public void showWarning(){
+        @Override
+        public  void showWarning()
+        {
+
             this.interrupt();
             try
             {
                 this.join();
             }
-            catch (InterruptedException e)
+            catch(Exception e)
             {
-                e.printStackTrace();
+
             }
 
         }
-        public void run(){
-            Thread thread = new Thread();
-            while (!thread.isInterrupted()){}
+
+        @Override
+        public void run()
+        {
+            Thread current = Thread.currentThread();
+            while(!current.interrupted())
+            {
+
+            }
+
+
         }
     }
 
-    public static class Thread5 extends Thread {
+    public static class ThreadFive extends Thread {
 
-        public void run(){
+        @Override
+        public void run()
+        {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            int sum = 0 ;
-            try
-            {
-                while (!isInterrupted()){
-                    String read = reader.readLine();
-                    if (read.equals("N ")){
-                        Thread.interrupted();
-                    }
-                    else{
-                        int num = Integer.parseInt(read);
-                        sum += num;
+            int sum = 0;
+
+            try{
+
+                while (!isInterrupted())
+                {
+                    String s = reader.readLine();
+
+                    if (s.equals("N")) this.interrupt();
+
+                    else
+                    {
+                        int integer = Integer.parseInt(s);
+
+                        sum += integer;
                     }
                 }
+
                 throw new InterruptedException();
-            }
-            catch (IOException e)
+
+            }catch (IOException e)
             {
-                e.printStackTrace();
-            }
-            catch (InterruptedException e)
+
+            }catch (InterruptedException e)
             {
                 System.out.println(sum);
             }
+
 
         }
     }
