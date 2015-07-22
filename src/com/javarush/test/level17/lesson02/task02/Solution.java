@@ -40,4 +40,11 @@ public class Solution {
             }
         }
     }
+
+    public static class SortThread extends Thread{
+        public void run(){
+         Solution.sort(testArray);
+        }
+
+    }
 }
