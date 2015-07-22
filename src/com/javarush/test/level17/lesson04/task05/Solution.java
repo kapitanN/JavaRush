@@ -14,6 +14,9 @@ public class Solution {
 
         public static IMF getFund() {
             //add your code here - добавь код тут
+            synchronized(Solution.class){
+                IMF imf = new IMF();
+            }
             return imf;
         }
 
