@@ -12,8 +12,6 @@
       <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level17/lesson10/bonus02" />
       <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level17/lesson10/bonus03" />
       <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level17/lesson10/home03" />
-      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level17/lesson10/home08" />
-      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level17/lesson10/home09" />
       <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level17/lesson10/home10" />
     </content>
     <orderEntry type="inheritedJdk" />
