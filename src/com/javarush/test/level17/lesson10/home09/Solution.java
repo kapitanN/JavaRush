@@ -1,5 +1,11 @@
 package com.javarush.test.level17.lesson10.home09;
 
+import com.javarush.test.level06.lesson08.task05.StringHelper;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +29,19 @@ public class Solution {
     }
 
     public void joinData () throws CorruptedDataException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        try
+        {
+            String firstNameFile = reader.readLine();
+            String secondNameFile = reader.readLine();
+            FileInputStream inputStream = new FileInputStream(firstNameFile);
+            FileInputStream secondInputStream = new FileInputStream(secondNameFile);
+            allLines.add(inputStream = )
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }
