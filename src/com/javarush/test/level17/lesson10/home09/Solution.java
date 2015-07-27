@@ -2,10 +2,8 @@ package com.javarush.test.level17.lesson10.home09;
 
 import com.javarush.test.level06.lesson08.task05.StringHelper;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,22 +23,46 @@ public class Solution {
     public static List<String> allLines = new ArrayList<String>();
     public static List<String> forRemoveLines = new ArrayList<String>();
 
-    public static void main(String[] args) {
-    }
-
-    public void joinData () throws CorruptedDataException {
+    public static void main(String[] args) throws IOException{
+        String current;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        try
-        {
-            String firstNameFile = reader.readLine();
-            String secondNameFile = reader.readLine();
-            FileInputStream inputStream = new FileInputStream(firstNameFile);
-            FileInputStream secondInputStream = new FileInputStream(secondNameFile);
-            allLines.add(inputStream = )
+        String firstFileName = reader.readLine();
+        String secondFileName = reader.readLine();
+
+        try{
+            BufferedReader inputStream = new BufferedReader(new FileReader(firstFileName));
+            while ((current = inputStream.readLine()) != null){
+                allLines.add(current);
+            }
+
+            BufferedReader secondInputStream = new BufferedReader(new FileReader(secondFileName));
+            while ((current = secondInputStream.readLine()) != null ){
+                forRemoveLines.add(current);
+            }
         }
         catch (IOException e)
         {
             e.printStackTrace();
+        }
+
+        new Solution().joinData();
+    }
+
+
+    public void joinData () throws CorruptedDataException {
+        if (allLines.containsAll(forRemoveLines)){
+            allLines.removeAll(forRemoveLines);
+            System.out.println("a");
+            return;
+        }
+        else{
+            for (String line : forRemoveLines)
+            {
+                if (!allLines.contains(line))
+                allLines.clear();
+                throw new CorruptedDataException();
+
+            }
         }
 
     }
