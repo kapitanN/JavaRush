@@ -16,7 +16,6 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String name = reader.readLine();
         FileInputStream input = new FileInputStream(name);
-        byte [] buffer = new byte[100];
         int tmp;
         int max = 0;
         while(input.available()>0){
