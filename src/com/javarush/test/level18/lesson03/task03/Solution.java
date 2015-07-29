@@ -3,8 +3,7 @@ package com.javarush.test.level18.lesson03.task03;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 /* Самые частые байты
 Ввести с консоли имя файла
@@ -28,11 +27,11 @@ public class Solution {
         }
 
 
-        Solution.often(data,data1);
+        Solution.oftenBytes(data,data1);
 
 
 }
-    public static void often(ArrayList<Integer> data, HashMap<Integer, Integer> data1){
+    public static void oftenBytes(ArrayList<Integer> data, HashMap<Integer, Integer> data1){
 
         int value = 0;
         for (int i = 0; i < data.size(); i++)
@@ -48,9 +47,6 @@ public class Solution {
             }
         }
 
-        for (Integer sortedValue : data1.values()){
-
-        }
 
         for (int i = 0; i < data.size(); i++)
         {
@@ -60,5 +56,17 @@ public class Solution {
         for (Integer dataValue : data1.values()){
             System.out.println(dataValue);
         }
+    }
+
+    public static void sort(HashMap<Integer, Integer> data){
+        ArrayList sortedList = new ArrayList(data.entrySet());
+        Collections.sort(sortedList, new Comparator(){
+
+            @Override
+            public int compare(Map.Entry e1, Map.Entry e2){
+                return e1.getValue().compareTo(e2.getValue());
+            }
+
+        });
     }
 }
