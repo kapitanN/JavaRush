@@ -30,32 +30,19 @@ public class Solution {
 
         }
 
-        System.out.println(count);
             if (count%2 == 0){
-                outputThree.write(buffer, 13, count);
                 outputTwo.write(buffer, 0, count / 2);
-                System.out.println(count / 2 + 1);
+                outputThree.write(buffer, (count-(count/2)), count/2);
             }
             else {
                 outputTwo.write(buffer, 0, count / 2 + 1);
-                outputThree.write(buffer, count/2,count);
+                outputThree.write(buffer, count/2+1,count/2-1);
             }
 
        reader.close();
        inputOne.close();
        outputTwo.close();
        outputThree.close();
-
-        FileInputStream output4 = new FileInputStream("/home/nikita/result1.txt");
-        FileInputStream output5 = new FileInputStream("/home/nikita/result2.txt");
-        int outcount1 = 0;
-        int outcount2 = 0;
-        while (output4.available()>0){
-            outcount1 = output4.read();}
-        while (output5.available()>0){
-            outcount2 = output5.read();}
-        System.out.println(outcount1);
-        System.out.println(outcount2);
 
     }
 }

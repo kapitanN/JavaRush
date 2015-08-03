@@ -6,8 +6,27 @@ package com.javarush.test.level18.lesson05.task04;
 Закрыть потоки ввода-вывода
 */
 
-public class Solution {
-    public static void main(String[] args) {
+import java.io.*;
 
+public class Solution {
+    public static void main(String[] args) throws IOException
+    {
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String fileNameOne = reader.readLine();
+        String fileNameTwo = reader.readLine();
+        FileInputStream inputOne = new FileInputStream(fileNameOne);
+        FileOutputStream outputTwo = new FileOutputStream(fileNameTwo);
+        byte[] buffer = new byte[inputOne.available()];
+        int count = 0;
+        while (inputOne.available()>0){
+            count = inputOne.read(buffer);
+        }
+
+        for (int i = buffer.length-1; i >=0; i--)
+        {
+            outputTwo.write(buffer[i]);
+
+        }
     }
 }
