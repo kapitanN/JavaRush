@@ -8,8 +8,41 @@ package com.javarush.test.level18.lesson05.task03;
 Закрыть потоки ввода-вывода
 */
 
+import java.io.*;
+
 public class Solution {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException
+    {
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String fileNameOne = reader.readLine();
+        String fileNameTwo = reader.readLine();
+        String fileNameThree = reader.readLine();
+        FileInputStream inputOne = new FileInputStream(fileNameOne);
+        FileOutputStream outputTwo = new FileOutputStream(fileNameTwo);
+        FileOutputStream outputThree = new FileOutputStream(fileNameThree);
+
+        int count = 0;
+        byte buffer[] =  new byte[1000];
+        while (inputOne.available()>0){
+            count = inputOne.read(buffer);
+
+        }
+
+        System.out.println(count);
+            if (count%2 == 0){
+                outputTwo.write(buffer,0,count/2);
+                outputThree.write(buffer,(count/2),count);
+            }
+            else {
+                outputTwo.write(buffer, 0, (count / 2) + 1);
+                outputThree.write(buffer, count/2+1,count);
+            }
+
+       reader.close();
+       inputOne.close();
+       outputTwo.close();
+       outputThree.close();
 
     }
 }

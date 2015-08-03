@@ -21,7 +21,8 @@ public class Solution {
         FileInputStream input = new FileInputStream(name);
         int count = 0;
         while (input.available()>0){
-            //if (input.read() == ",")
+            if (input.read() == 44) count++;
         }
+        System.out.println(count);
     }
 }
