@@ -9,7 +9,25 @@ import java.util.List;
 */
 
 public class Solution {
-    public class TableInterfaceWrapper {
+    public class TableInterfaceWrapper implements ATableInterface{
+        private ATableInterface table;
+
+        public TableInterfaceWrapper(ATableInterface table){
+            this.table = table;
+        }
+
+        public void setModel(List rows){
+            System.out.println(rows.size());
+            table.setModel(rows);
+        }
+
+        public String getHeaderText(){
+            return table.getHeaderText().toUpperCase();
+        }
+
+        public void setHeaderText(String newHeaderText){
+            table.setHeaderText(newHeaderText);
+        }
 
     }
 

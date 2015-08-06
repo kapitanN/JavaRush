@@ -11,7 +11,12 @@ import java.io.IOException;
 */
 
 public class TxtInputStream extends FileInputStream {
-    public TxtInputStream(String fileName) {
+    public TxtInputStream(String fileName) throws FileNotFoundException, UnsupportedFileNameException
+    {
+        super(fileName);
+        if (!fileName.endsWith(".txt")){
+            throw new UnsupportedFileNameException();
+        }
     }
 
 }
