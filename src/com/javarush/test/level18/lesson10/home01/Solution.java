@@ -15,7 +15,6 @@ public class Solution
     public static void main(String[] args) throws Exception
     {
         int count = 0;
-        System.out.println(args[0]);
         if(args.length > 0){
             FileInputStream in = new FileInputStream(args[0]);
 
@@ -33,6 +32,6 @@ public class Solution
         }
 
 
-        System.out.println(Integer.valueOf(count));
+        System.out.println(count);
     }
 }
