@@ -16,7 +16,7 @@ public class Solution
     {
         int count = 0;
         System.out.println(args[0]);
-        /*if(args.length > 0){
+        if(args.length > 0){
             FileInputStream in = new FileInputStream(args[0]);
 
             while(in.available() > 0){
@@ -30,7 +30,7 @@ public class Solution
 
 
             in.close();
-        }*/
+        }
 
 
         //System.out.println(Integer.valueOf(count));
