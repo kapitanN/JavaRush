@@ -1,4 +1,4 @@
-package com.javarush.test.level18.lesson10.home03;
+ package com.javarush.test.level18.lesson10.home03;
 
 /* Два в одном
 Считать с консоли 3 имени файла
