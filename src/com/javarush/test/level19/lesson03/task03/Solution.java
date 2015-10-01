@@ -11,6 +11,8 @@ CA Canada
 Обратите внимание на формат вывода фамилии и имени человека
 */
 
+import com.javarush.test.level06.lesson08.task05.StringHelper;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +20,36 @@ public class Solution {
     public static Map<String, String> countries = new HashMap<String, String>();
 
     public static class IncomeDataAdapter {
+        static{
+            countries.put("UA", "Ukraine");
+            countries.put("RU", "Russian");
+            countries.put("CA", "Canada");
+        }
+        public static IncomeData incomeData;
+        public IncomeDataAdapter(IncomeData incomeData){
+            this.incomeData = incomeData;
+        }
+
+        public String getCompanyName(){
+            return incomeData.getCompany();
+        }
+
+        public String getCountryName(){
+            return countries.get(incomeData.getCountryCode());
+        }
+
+        public String getName(){
+            return incomeData.getContactLastName() + "," + incomeData.getContactFirstName();
+        }
+
+        public String getPhoneNumber(){
+            String s = String.format("+%d(%2$s)%3$s-%4$s-%5$s",incomeData.getCountryPhoneCode(),
+                    String.format("%010d",incomeData.getPhoneNumber()).substring(0, 3),
+                    String.format("%010d",incomeData.getPhoneNumber()).substring(3,6),
+                    String.format("%010d",incomeData.getPhoneNumber()).substring(6,8),
+                    String.format("%010d",incomeData.getPhoneNumber()).substring(8));
+            return s;
+        }
     }
 
     public static interface IncomeData {
