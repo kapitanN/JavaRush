@@ -42,7 +42,7 @@ public class Solution {
 
     public static class Human {
         public String name;
-        public List<Asset> assets = new ArrayList<>();
+        public List<Asset> assets = new ArrayList<Asset>();
 
         public Human() {
         }
@@ -55,10 +55,35 @@ public class Solution {
         }
 
         public void save(OutputStream outputStream) throws Exception {
+            PrintWriter printWriter = new PrintWriter(outputStream);
+            String isNamePresent = name != null ? "yes" : "no";
+            printWriter.println(isNamePresent);
+            printWriter.println(assets.size());
+            if (name != null) {
+                printWriter.println(name);
+            }
+            for (Asset asset : assets){
+                printWriter.println(asset.getName());
+                printWriter.println(asset.getPrice());
+            }
+            printWriter.flush();
+            printWriter.close();
             //implement this method - реализуйте этот метод
         }
 
         public void load(InputStream inputStream) throws Exception {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String isNamePresent = reader.readLine();
+            if (isNamePresent.equals("yes")){
+                name = reader.readLine();
+                int assetsSize = Integer.parseInt(reader.readLine());
+                    for (int i = 0; i < assetsSize; i++)
+                    {
+                        String assetsName = reader.readLine();
+                        String assetsPrice = reader.readLine();
+                        assets.add(new Asset(assetsName));
+                    }
+            }
             //implement this method - реализуйте этот метод
         }
     }
