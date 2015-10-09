@@ -14,7 +14,10 @@ import java.util.Scanner;
 
 public class Solution {
     public static class PersonScannerAdapter {
-
+        private Person person;
+        public PersonScannerAdapter(Person person){
+            this.person = person;
+        }
 
     }
 }
