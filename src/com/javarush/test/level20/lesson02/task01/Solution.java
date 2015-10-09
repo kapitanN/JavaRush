@@ -27,6 +27,9 @@ public class Solution {
 
             Human somePerson = new Human();
             somePerson.load(inputStream);
+            if (ivanov.equals(somePerson)){
+                System.out.println("yes");
+            }
             //check here that ivanov equals to somePerson - проверьте тут, что ivanov и somePerson равны
             inputStream.close();
 
@@ -82,8 +85,11 @@ public class Solution {
                         String assetsName = reader.readLine();
                         String assetsPrice = reader.readLine();
                         assets.add(new Asset(assetsName));
+                        assets.get(assets.size()-1).setPrice(Double.parseDouble(assetsPrice));
                     }
             }
+            inputStream.close();
+
             //implement this method - реализуйте этот метод
         }
     }
