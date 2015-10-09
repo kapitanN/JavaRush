@@ -49,6 +49,33 @@
       <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level19/lesson10/home08" />
       <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level19/lesson10/home09" />
       <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level19/lesson10/home10" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson02/task02" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson02/task03" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson02/task04" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson02/task05" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson04/task01" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson04/task02" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson04/task03" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson04/task04" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson04/task05" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson07/task01" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson07/task02" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson07/task03" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson07/task04" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson07/task05" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson10/bonus01" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson10/bonus02" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson10/bonus03" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson10/bonus04" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson10/home01" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson10/home02" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson10/home03" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson10/home04" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson10/home05" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson10/home06" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson10/home07" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson10/home08" />
+      <excludeFolder url="file://$MODULE_DIR$/src/com/javarush/test/level20/lesson10/home09" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
