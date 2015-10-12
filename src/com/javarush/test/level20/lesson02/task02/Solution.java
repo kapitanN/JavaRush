@@ -40,7 +40,7 @@ public class Solution {
     }
 
     public static class JavaRush {
-        public List<User> users = new ArrayList<>();
+        public List<User> users = new ArrayList<User>();
 
         public void save(OutputStream outputStream) throws Exception {
             //implement this method - реализуйте этот метод

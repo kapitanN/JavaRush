@@ -27,11 +27,16 @@ public class Solution {
 
             Human somePerson = new Human();
             somePerson.load(inputStream);
+            System.out.println(somePerson.name);
+            for (Asset current : somePerson.assets){
+            System.out.println(current.getName());
+            }
             if (ivanov.equals(somePerson)){
                 System.out.println("yes");
             }
             //check here that ivanov equals to somePerson - проверьте тут, что ivanov и somePerson равны
             inputStream.close();
+
 
         } catch (IOException e) {
             //e.printStackTrace();
@@ -44,6 +49,27 @@ public class Solution {
 
 
     public static class Human {
+        @Override
+        public boolean equals(Object o)
+        {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            Human human = (Human) o;
+
+            if (name != null ? !name.equals(human.name) : human.name != null) return false;
+            return !(assets != null ? !assets.equals(human.assets) : human.assets != null);
+
+        }
+
+        @Override
+        public int hashCode()
+        {
+            int result = name != null ? name.hashCode() : 0;
+            result = 31 * result + (assets != null ? assets.hashCode() : 0);
+            return result;
+        }
+
         public String name;
         public List<Asset> assets = new ArrayList<Asset>();
 
@@ -60,33 +86,41 @@ public class Solution {
         public void save(OutputStream outputStream) throws Exception {
             PrintWriter printWriter = new PrintWriter(outputStream);
             String isNamePresent = this.name != null ? "yes" : "no";
-            printWriter.println(isNamePresent);
+            //int assetSize;
             printWriter.println(assets.size());
             if ("yes".equals(isNamePresent)) {
-                printWriter.println(name);
-            }
-            for (Asset asset : assets){
-                printWriter.println(asset.getName());
-                printWriter.println(asset.getPrice());
+                printWriter.println(this.name);
+                if (assets.size()>0){
+                    for (Asset asset : assets)
+                    {
+                    printWriter.println(asset.getName());
+                    //printWriter.println(asset.getPrice());
+                    }
+                }
             }
             printWriter.flush();
+            printWriter.close();
             //implement this method - реализуйте этот метод
         }
 
         public void load(InputStream inputStream) throws Exception {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            String isNamePresent = reader.readLine();
-            if (isNamePresent.equals("yes")){
-                name = reader.readLine();
-                int assetsSize = Integer.parseInt(reader.readLine());
-                    for (int i = 0; i < assetsSize; i++)
+            int assetSize = Integer.parseInt(reader.readLine());
+            name = reader.readLine();
+            System.out.println(name);
+            System.out.println(assetSize);
+            if (name != null){
+                    for (int i = 0; i<assetSize; i++)
                     {
                         String assetsName = reader.readLine();
-                        String assetsPrice = reader.readLine();
+                        System.out.println(assetsName);
+                        //String assetsPrice = reader.readLine();
+                        //System.out.println(assetsPrice);
                         assets.add(new Asset(assetsName));
-                        assets.get(assets.size()-1).setPrice(Double.parseDouble(assetsPrice));
+                        //assets.get(assets.size()-1).setPrice(Double.parseDouble(assetsPrice));
                     }
             }
+
             inputStream.close();
 
             //implement this method - реализуйте этот метод
