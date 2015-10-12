@@ -59,10 +59,10 @@ public class Solution {
 
         public void save(OutputStream outputStream) throws Exception {
             PrintWriter printWriter = new PrintWriter(outputStream);
-            String isNamePresent = name != null ? "yes" : "no";
+            String isNamePresent = this.name != null ? "yes" : "no";
             printWriter.println(isNamePresent);
             printWriter.println(assets.size());
-            if (name != null) {
+            if ("yes".equals(isNamePresent)) {
                 printWriter.println(name);
             }
             for (Asset asset : assets){
@@ -70,7 +70,6 @@ public class Solution {
                 printWriter.println(asset.getPrice());
             }
             printWriter.flush();
-            printWriter.close();
             //implement this method - реализуйте этот метод
         }
 

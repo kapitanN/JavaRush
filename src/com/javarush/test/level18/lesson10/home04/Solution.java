@@ -48,6 +48,7 @@ public class Solution {
 
         in2.close();
         out1.close();
+
         /*File name1 = new File(reader.readLine());
         File name2 = new File(reader.readLine());
         RandomAccessFile data = new RandomAccessFile(name1, "rw");
@@ -55,8 +56,7 @@ public class Solution {
         String s = data1.readLine();
         System.out.println(s);
         data.seek(0);
-        data.writeBytes(s);*/
-
+        data.writeBytes(s);    */
 
 
     }
