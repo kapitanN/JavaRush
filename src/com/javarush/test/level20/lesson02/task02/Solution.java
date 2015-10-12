@@ -19,6 +19,7 @@ public class Solution {
             InputStream inputStream = new FileInputStream(your_file_name);
 
             JavaRush javaRush = new JavaRush();
+            javaRush.users.add(new User());
             //initialize users field for the javaRush object here - инициализируйте поле users для объекта javaRush тут
             javaRush.save(outputStream);
             outputStream.flush();
