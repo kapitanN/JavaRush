@@ -27,7 +27,8 @@ public class Solution {
 
             Human somePerson = new Human();
             somePerson.load(inputStream);
-            System.out.println(somePerson.name);
+            System.out.println(ivanov.hashCode());
+            System.out.println(somePerson.hashCode());
             for (Asset current : somePerson.assets){
             System.out.println(current.getName());
             }

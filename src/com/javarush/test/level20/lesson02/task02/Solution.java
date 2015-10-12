@@ -40,9 +40,29 @@ public class Solution {
     }
 
     public static class JavaRush {
+        @Override
+        public boolean equals(Object o)
+        {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            JavaRush javaRush = (JavaRush) o;
+
+            return !(users != null ? !users.equals(javaRush.users) : javaRush.users != null);
+
+        }
+
+        @Override
+        public int hashCode()
+        {
+            return users != null ? users.hashCode() : 0;
+        }
+
         public List<User> users = new ArrayList<User>();
 
         public void save(OutputStream outputStream) throws Exception {
+            PrintWriter printWriter = new PrintWriter(outputStream);
+
             //implement this method - реализуйте этот метод
         }
 
