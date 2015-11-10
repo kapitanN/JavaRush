@@ -24,9 +24,9 @@ public class Solution {
         children.add(child2);
         person.setChildren(children);
 
-        System.out.println(person.firstName+" "+person.lastName+" "+person.age+" "+person.father.firstName+" "+person.mother.firstName+" "+person.children);
+        System.out.println(person.firstName + " " + person.lastName + " " + person.age + " " + person.father.firstName + " " + person.mother.firstName + " " + person.children);
 
-        File file = new File("D:/data.dat");
+        File file = new File("D:/data.txt");
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
         out.writeObject(person);
         out.close();
@@ -75,10 +75,10 @@ public class Solution {
 
         @Override
         public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
-            firstName = in.readLine();
-            lastName = in.readLine();
             father = (Person)in.readObject();
             mother = (Person)in.readObject();
+            firstName = (String)in.readLine();
+            lastName = (String)in.readLine();
             age = in.readInt();
             children = (List<Person>)in.readObject();
         }
