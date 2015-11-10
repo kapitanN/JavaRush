@@ -12,11 +12,11 @@ import java.util.List;
 */
 public class Solution {
     public static void main(String [] args) throws IOException,ClassNotFoundException{
-        Person person = new Person("Bart", "Simpson", 25);
-        Person mom = new Person("Marge", "Simpson", 53);
-        Person dad = new Person("Homer", "Simpson", 59);
-        Person child1 = new Person("LittleBoy", "Simpson", 8);
-        Person child2 = new Person("LittleGirl", "Simpson", 3);
+        Person person = new Person("Ragnar", "Lodbrok", 35);
+        Person mom = new Person("God", "Odin", 10000);
+        Person dad = new Person("Goddess", "Freya", 10000);
+        Person child1 = new Person("Bjorn", "Lodbrok", 19);
+        Person child2 = new Person("Ivar", "Lodbrok", 6);
         person.setMother(mom);
         person.setFather(dad);
         ArrayList<Person> children = new ArrayList<Person>();
