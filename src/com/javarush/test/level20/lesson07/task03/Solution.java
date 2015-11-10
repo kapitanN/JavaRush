@@ -1,9 +1,7 @@
 package com.javarush.test.level20.lesson07.task03;
 
-import java.io.Externalizable;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /* Externalizable Person
@@ -13,6 +11,32 @@ import java.util.List;
 Сигнатуры методов менять нельзя.
 */
 public class Solution {
+    public static void main(String [] args) throws IOException,ClassNotFoundException{
+        Person person = new Person("Bart", "Simpson", 25);
+        Person mom = new Person("Marge", "Simpson", 53);
+        Person dad = new Person("Homer", "Simpson", 59);
+        Person child1 = new Person("LittleBoy", "Simpson", 8);
+        Person child2 = new Person("LittleGirl", "Simpson", 3);
+        person.setMother(mom);
+        person.setFather(dad);
+        ArrayList<Person> children = new ArrayList<Person>();
+        children.add(child1);
+        children.add(child2);
+        person.setChildren(children);
+
+        System.out.println(person.firstName+" "+person.lastName+" "+person.age+" "+person.father.firstName+" "+person.mother.firstName+" "+person.children);
+
+        File file = new File("D:/data.dat");
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+        out.writeObject(person);
+        out.close();
+
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+        Person person1 = (Person)in.readObject();
+        in.close();
+
+        System.out.println(person.firstName+" "+person.lastName+" "+person.age+" "+person.father.firstName+" "+person.mother.firstName+" "+person.children);
+    }
     public static class Person implements Externalizable {
         private String firstName;
         private String lastName;
@@ -56,7 +80,7 @@ public class Solution {
             father = (Person)in.readObject();
             mother = (Person)in.readObject();
             age = in.readInt();
-            children = (List)in.readObject();
+            children = (List<Person>)in.readObject();
         }
     }
 }
