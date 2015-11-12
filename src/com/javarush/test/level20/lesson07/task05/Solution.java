@@ -22,6 +22,7 @@ public class Solution implements Serializable, Runnable {
     }
 
     public void run() {
+        System.out.println("new thread");
         // do something here, does not matter
     }
 
@@ -38,5 +39,7 @@ public class Solution implements Serializable, Runnable {
 
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
         in.defaultReadObject();
+        runner = new Thread(this);
+        runner.start();
     }
 }
