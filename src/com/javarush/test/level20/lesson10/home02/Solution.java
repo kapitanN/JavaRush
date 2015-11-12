@@ -1,6 +1,7 @@
 package com.javarush.test.level20.lesson10.home02;
 
 import java.io.ObjectInputStream;
+import java.io.Serializable;
 
 /* Десериализация
 На вход подается поток, в который записан сериализованный объект класса A либо класса B.
@@ -13,7 +14,7 @@ public class Solution {
         return null;
     }
 
-    public class A {
+    public class A implements Serializable {
     }
 
     public class B extends A {
