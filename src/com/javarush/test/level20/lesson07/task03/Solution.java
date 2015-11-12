@@ -26,7 +26,7 @@ public class Solution {
 
         System.out.println(person.firstName + " " + person.lastName + " " + person.age + " " + person.father.firstName + " " + person.mother.firstName + " " + person.children);
 
-        File file = new File("D:/data.txt");
+        File file = new File("d:/data.txt");
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
         out.writeObject(person);
         out.close();
@@ -44,6 +44,8 @@ public class Solution {
         private Person mother;
         private Person father;
         private List<Person> children;
+
+        public Person(){}
 
         public Person(String firstName, String lastName, int age) {
             this.firstName = firstName;
@@ -65,20 +67,20 @@ public class Solution {
 
         @Override
         public void writeExternal(ObjectOutput out) throws IOException {
-            out.writeObject(mother);
-            out.writeObject(father);
-            out.writeChars(firstName);
-            out.writeChars(lastName);
-            out.writeInt(age);
-            out.writeObject(children);
+            out.writeObject(this.mother);
+            out.writeObject(this.father);
+            out.writeObject(this.firstName);
+            out.writeObject(this.lastName);
+            out.writeInt(this.age);
+            out.writeObject(this.children);
         }
 
         @Override
         public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
-            father = (Person)in.readObject();
             mother = (Person)in.readObject();
-            firstName = (String)in.readLine();
-            lastName = (String)in.readLine();
+            father = (Person)in.readObject();
+            firstName = (String)in.readObject();
+            lastName = (String) in.readObject();
             age = in.readInt();
             children = (List<Person>)in.readObject();
         }
