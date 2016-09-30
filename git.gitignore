@@ -1,3 +1,4 @@
 *.class
-/.settings
+*.settings
 *.properties
+JavaRushHomeWork.iml

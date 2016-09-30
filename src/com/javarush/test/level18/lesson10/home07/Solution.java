@@ -17,7 +17,31 @@ quantity - количество, int
 Информация по каждому товару хранится в отдельной строке
 */
 
+import java.io.*;
+import java.util.Locale;
+import java.util.Scanner;
+
 public class Solution {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException
+    {
+        Scanner sc = new Scanner(System.in);
+        String fileName1 = sc.nextLine();
+        sc.close();
+        try {
+            Scanner in = new Scanner(new FileInputStream(fileName1));
+            in.useLocale(Locale.ENGLISH);
+            String s = null;
+            int id, idToFind = Integer.parseInt(args[0]);
+            while (in.hasNext()) {
+                s = in.nextLine();
+                String strId = s.substring(0, s.indexOf(' '));
+                if ((id = Integer.parseInt(strId)) == idToFind) {
+                    System.out.println(s);
+                }
+            }
+            in.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

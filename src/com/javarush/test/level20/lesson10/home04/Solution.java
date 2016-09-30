@@ -12,12 +12,12 @@ import java.util.Map;
 public class Solution implements Serializable {
 
     public static void main(String args[]) throws Exception {
+
         FileOutputStream fileOutput = new FileOutputStream("your.file.name");
         ObjectOutputStream outputStream = new ObjectOutputStream(fileOutput);
 
         Solution solution = new Solution();
         outputStream.writeObject(solution);
-
         fileOutput.close();
         outputStream.close();
 
@@ -32,15 +32,16 @@ public class Solution implements Serializable {
 
         //Attention!!
         System.out.println(loadedObject.size());
+
     }
 
-    private Map<String, String> m = new HashMap<>();
+    private Map<String, String> m = new HashMap<String, String>();
 
     public Map<String, String> getMap() {
         return m;
     }
 
-    public void Solution() {
+    public Solution() {
         m.put("Mickey", "Mouse");
         m.put("Mickey", "Mantle");
     }

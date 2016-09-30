@@ -12,7 +12,42 @@ package com.javarush.test.level18.lesson10.home10;
 Темповые файлы создавать нельзя, т.к. на сервере заблокирована возможность создания каких любо файлов
 */
 
+import java.io.*;
+import java.util.*;
+
 public class Solution {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException
+    {
+        List<String> files= new ArrayList<String>();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String file = "";
+        String simlpeFileName = "";
+        String simlpeFileExt = "";
+        while(true){
+            file = reader.readLine();
+            if(!file.equals("end")) {
+                files.add(file);
+            }
+            else{
+                break;
+            }
+        }
+        Collections.sort(files);
+        String[] nameFile = files.get(0).split("\\.");
+        simlpeFileName = nameFile[0];
+        simlpeFileExt = nameFile[1];
+        FileOutputStream out = new FileOutputStream(simlpeFileName + "." + simlpeFileExt);
+        for (String s:files) {
+            FileInputStream in = new FileInputStream(new File(s));
+            if (in.available() > 0) {
+
+                byte[] buffer = new byte[in.available()];
+                int count = in.read(buffer);
+                out.write(buffer, 0, count);
+            }
+            in.close();
+        }
+        out.close();
+        reader.close();
     }
 }

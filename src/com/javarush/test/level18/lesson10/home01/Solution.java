@@ -7,6 +7,7 @@ package com.javarush.test.level18.lesson10.home01;
 Закрыть потоки
 */
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -14,25 +15,31 @@ public class Solution
 {
     public static void main(String[] args) throws Exception
     {
-        int count = 0;
-        System.out.println(args[0]);
-        if(args.length > 0){
-            FileInputStream in = new FileInputStream(args[0]);
+        FileInputStream inputStream = new FileInputStream(new File(args[0]));
+        int englishWords = 0;
+        int word;
 
-            while(in.available() > 0){
-                int data = in.read();
-                if((data >= Integer.valueOf('A') && data <= Integer.valueOf('Z'))
-                        || (data >= Integer.valueOf('a') && data <= Integer.valueOf('z'))){
-                    count++;
-                }
+
+        while (inputStream.available() > 0) {
+            word = inputStream.read();
+            if (isEnglishLetter(word)) {
+                englishWords++;
             }
 
-
-
-           // in.close();
         }
 
+        System.out.println(englishWords);
+//        rd.close();
+        inputStream.close();
+    }
 
-        //System.out.println(Integer.valueOf(count));
+
+    // check on unicode symbols
+    public static boolean isEnglishLetter(int x) {
+        if (((x > 64) && (x < 91)) || ((x > 96) && (x < 123))) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

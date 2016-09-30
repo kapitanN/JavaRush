@@ -7,7 +7,26 @@ package com.javarush.test.level18.lesson10.home09;
 Не забудьте закрыть все потоки
 */
 
+import java.io.*;
+
 public class Solution {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException
+    {
+        BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
+        String fileName;
+        while (true) {
+            fileName = rd.readLine();
+            File file = new File(fileName);
+            try {
+                if (!file.exists()) {
+                    throw new FileNotFoundException();
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println(fileName);
+                rd.close();
+                break;
+            }
+
+        }
     }
 }

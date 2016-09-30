@@ -1,5 +1,6 @@
 package com.javarush.test.level20.lesson10.home02;
 
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 
@@ -8,10 +9,19 @@ import java.io.Serializable;
 Десериализуйте объект в методе getOriginalObject предварительно определив, какого именно типа там объект.
 Реализуйте интерфейс Serializable где необходимо.
 */
-public class Solution {
-    public A getOriginalObject(ObjectInputStream objectStream) {
-
+public class Solution implements Serializable{
+    public A getOriginalObject(ObjectInputStream objectStream) throws Exception
+    {
+        ObjectInputStream in = objectStream;
+        Object obj = in.readObject();
+        if (obj instanceof A){
+            return (A)obj;
+        }
+        else if (obj instanceof B){
+            return (B)obj;
+        }
         return null;
+
     }
 
     public class A implements Serializable {
